@@ -1,0 +1,38 @@
+import tkinter as tk
+from tkinter import messagebox
+
+
+
+
+list=[]
+
+def tafeas():
+    
+    lista = entrada_lista.get()
+    nome = entrada_nome.get()
+    list.append(lista)
+    if tafeas:
+        print('formulario enviado')
+
+    print(lista)
+
+   
+
+
+janela = tk.Tk()
+janela.title("tarefas")   
+janela.geometry("400x300")      
+
+tk.Label(janela, text="lista:").grid(row=0, column=0, padx=10, pady=10)
+entrada_lista = tk.Entry(janela)
+entrada_lista.grid(row=0, column=1, padx=10, pady=10)
+
+tk.Label(janela, text="Nome:").grid(row=1, column=0, padx=10, pady=10)
+entrada_nome = tk.Entry(janela)
+entrada_nome.grid(row=1, column=1, padx=10, pady=10)
+
+
+botao_enviar= tk.Button(janela, text="enviar", command=tafeas,)
+botao_enviar.grid(row=2,column=0, columnspan=2, pady=10)
+
+janela.mainloop()               
