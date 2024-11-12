@@ -1,38 +1,136 @@
-import tkinter as tk
-from tkinter import messagebox
+cardapio = """
 
-
-
-
-list=[]
-
-def tafeas():
+                Cardápio
     
-    lista = entrada_lista.get()
-    nome = entrada_nome.get()
-    list.append(lista)
-    if tafeas:
-        print('formulario enviado')
+    Entradas:
 
-    print(lista)
+    [1] Salada Verde - R$ 15,00
+    [2] Bruschetta - R$ 18,00
+    [3] Carpaccio - R$ 22,00
+    
+    Pratos Principais:
 
-   
+    [4] Filé Mignon - R$ 45,00
+    [5] Risoto de Camarão - R$ 50,00
+    [6] Spaghetti Carbonara - R$ 35,00
+    [7] Peixe Grelhado - R$ 40,00
+    
+    Acompanhamentos:
+
+    [8] Arroz Branco - R$ 10,00
+    [9] Batata Frita - R$ 12,00
+    [10] Legumes Salteados - R$ 14,00
+    
+    Sobremesas:
+
+    [11] Cheesecake - R$ 20,00
+    [12] Petit Gateau - R$ 25,00
+    [13] Sorvete Artesanal - R$ 18,00
+    
+    Bebidas:
+
+    [14] Suco Natural - R$ 8,00
+    [15] Refrigerante - R$ 6,00
+    [16] Vinho Tinto (Taça) - R$ 18,00
+    [17] Cerveja Artesanal - R$ 15,00
+
+ """
+print(cardapio)
+
+    #variaveis 
 
 
-janela = tk.Tk()
-janela.title("tarefas")   
-janela.geometry("400x300")      
+codigo = int(input('Digite o codigo do seu pedido: '))
+total =  0.0
+itens = []
 
-tk.Label(janela, text="lista:").grid(row=0, column=0, padx=10, pady=10)
-entrada_lista = tk.Entry(janela)
-entrada_lista.grid(row=0, column=1, padx=10, pady=10)
+ #loop multipla escolha
+while True:
+        if codigo == 1:
+            print('Você pediu uma salada verde no valor de R$ 15,00 ')
+            total += 15.00
+            itens.append ('Salada Verde')
+        elif codigo == 2:
+            print('Você pediu uma Bruschetta no valor de R$ 18,00')
+            total += 18.00
+            itens.append ('Bruschetta')
+        elif codigo == 3:
+            print('Você pediu um Carpaccio no valor de R$ 22,00 ')
+            total += 22.00
+            itens.append ('Carpaccio')
+        elif codigo == 4:
+            print('Você pediu um Filé Mignon no valor de  R$ 45,00 ')
+            total += 45.00
+            itens.append ('Filé Mignon')
+        elif codigo == 5:
+            print('Você pediu um Risoto de Camarão no valor de R$ 50,00')
+            total += 50.00
+            itens.append ('Risoto de Camarão')
+        elif codigo == 6:
+            print('Você pediu um Spaghetti Carbonara no valor de   R$ 35,00')    
+            total+= 35.00
+            itens.append ('Spaghetti Carbonara')
+        elif codigo == 7:
+            print('Você pediu um Peixe Grelhado no valo de R$ 40,00 ')
+            total+= 40.00
+            itens.append ('Peixe Grelhado')
+        elif codigo == 8:
+            print('Você pediu um Arroz Branco no valor de R$ 10,00')   
+            total += 10.00
+            itens.append ('Arroz Branco')
+        elif codigo == 9:
+            print('Você pediu uma Batata Frita no valor de R$ 12,00')
+            total+= 12.00
+            itens.append ('Batata Frita')
+        elif codigo == 10:
+            print('Você pediu um Legumes Salteados no valor de  R$ 14,00')
+            total+= 14.00
+            itens.append ('Legumes Salteados')
+        elif codigo == 11:
+            print('Você pediu um Cheesecake no valor de  R$ 20,00')
+            total+= 20.00
+            itens.append ('Cheesecake')
+        elif codigo == 12:
+            print('Você pediu um Petit Gateau no valor de R$ 25,00')
+            total+= 25.00
+            itens.append ('Petit Gateau')
+        elif codigo == 13:
+            print('Você pediu um Sorvete Artesanal no valor de R$ 18,00')
+            total+= 18.00
+            itens.append ('Sorvete Artesanal')
+        elif codigo == 14:
+            print('Você pediu um Suco Natural no valo de R$ 8,00')
+            total+= 8.00 
+            itens.append ('Suco Natural')
+        elif codigo== 15:
+            print('Você pediu um Refrigerante no valor de  R$ 6,00 ')
+            total== 6.00   
+            itens.append ('Refrigerante')
+        elif codigo == 16:
+            print('Você pediu um Vinho Tinto (Taça) no valor de R$ 18,00 ')
+            total== 18.00
+            itens.append ('Vinho Tinto (taça)')
+        elif codigo == 17:
+            print('Você pediu uma Cerveja Artesanal no valor de R$ 15,00')
+            total+= 15.00
+            itens.append ('Cerveja Artesanal')
+        else:
+             
+            print('Opção invalida')
+            codigo= int(input('Digite o codigo do seu pedido: '))
+            continue
 
-tk.Label(janela, text="Nome:").grid(row=1, column=0, padx=10, pady=10)
-entrada_nome = tk.Entry(janela)
-entrada_nome.grid(row=1, column=1, padx=10, pady=10)
+        print('Deseja pedir mais ?')
+        print('[1] Sim')
+        print('[2] Nao')
+        pedir_mais = int(input())
 
+        if pedir_mais == 2:
+            break 
+        
+        codigo=int(input('Digite o codigo do seu pedido: '))
 
-botao_enviar= tk.Button(janela, text="enviar", command=tafeas,)
-botao_enviar.grid(row=2,column=0, columnspan=2, pady=10)
-
-janela.mainloop()               
+        #print para imprimir pedidos e total
+print('Pedidos Selecionados')    
+print(f"\n".join(itens))
+print(f'O total a ser pago é : {total:.2f} R$')
